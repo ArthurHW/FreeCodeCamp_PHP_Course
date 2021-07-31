@@ -116,15 +116,42 @@
           echo "I love  $someone<br>";
        ?>
        <h2>URL parameters</h2>
-       <form action="index.php" method="GET">
+       <!-- <form action="index.php" method="GET">
           Name: <input type="text" name="name"> <br>
           <button type="submit">Submit</button>
-       </form>
+       </form> -->
        <br><br>
        <?php
         echo $_GET["name"];
         ?>
 
+        <h2>POST vs GET</h2>
+        <!-- <form action="index.php" method="POST">
+           Password: <input type="password" name="password"> <br>
+           <button type="submit">Submit</button>
+        </form> -->
+        <?php echo $_POST["password"]; ?>
+
+        <h2>Arrays</h2>
+        <?php
+          $friends  = array("Kevin", "Karen", "Oscar", "Jim");
+          echo $friends[1];
+          $friends[1] = "Dwight";
+          echo $friends[1];
+          $friends[4] = "Angela";
+          echo $friends[4];
+          $friends[10] = "Pedro";
+          echo $friends[10];
+          echo $friends[9];
+          echo count($friends);
+         ?>
+
+         <h2>Using Checkboxes</h2>
+         <form action="index.php" method="post">
+           <input type="checkbox" name="fruits[]" value="">
+           <input type="submit">
+         </form>
+         <?php  ?>
 
   </body>
 </html>
