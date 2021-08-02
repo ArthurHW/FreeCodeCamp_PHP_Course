@@ -2,10 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>PHP Course</title>
+    <title>PHP Course 1</title>
   </head>
   <body>
-    <h1>PHP Course</h1>
+    <h1>PHP Course 1</h1>
     <h2>Understanding Variables</h2>
     <?php
       $characterName = "Matt";
@@ -147,11 +147,41 @@
          ?>
 
          <h2>Using Checkboxes</h2>
-         <form action="index.php" method="post">
-           <input type="checkbox" name="fruits[]" value="">
+         <!-- <form action="index.php" method="post">
+           <label for="apples">Apples: </label>
+           <input type="checkbox" id="apples" name="fruits[]" value="apples"> <br>
+           <label for="oranges">Oranges: </label>
+           <input type="checkbox" id="oranges" name="fruits[]" value="oranges"> <br>
+           <label for="pears">Pears: </label>
+           <input type="checkbox" id="pears" name="fruits[]" value="pears"> <br>
            <input type="submit">
-         </form>
-         <?php  ?>
+         </form> -->
+         <?php
+          $fruits = $_POST["fruits"];
+          echo $fruits[0];
+         ?>
+         <h2>Associative Arrays</h2>
+         <!-- <form action="index.php" method="post">
+           <input type="text" name="student">
+           <button type="submit" name="submit">Submit</button>
+         </form> -->
+         <?php
+           $grades = array("Jim"=>"A+","Pam"=>"B-", "Oscar"=>"C+");
+           $grades["Jim"] = "F";
+           echo $grades["Jim"];
+           echo count($grades);
+           echo $grades[$_POST["student"]];
+          ?>
+          <h2>Functions</h2>
+          <?php
+            function sayHi($name,$age){
+              echo "Hello $name, you are $age <br>";
+            }
+            sayHi("Tom", 22);
+            sayHi("Dave", 40);
+            sayHi("Oscar", 80);
+           ?>
+
 
   </body>
 </html>
