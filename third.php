@@ -89,6 +89,62 @@
           echo "$student2->name has Honors";
         }
       ?>
+      <h2>Getters and Setters</h2>
+      <?php
+        class Movie {
+          public $title;
+          private $rating;
+
+          function __construct($title, $rating){
+            $this->title = $title;
+            $this->setRating($rating);
+          }
+
+          function getRating(){
+            return $this->rating;
+          }
+
+          function setRating($rating){
+            if ($rating == "G" || $rating == "PG" || $rating == "PG-13" || $rating == "R" || $rating == "NR"){
+              $this->rating = $rating;
+            } else {
+              $this->rating = "NR";
+            }
+          }
+        }
+        $avengers = new Movie("Avengers", "Dog");
+        // G, PG, PG-13, R, NR
+        echo $avengers->getRating();
+       ?>
+       <h2>Inheritance</h2>
+       <?php
+          class Chef {
+            function makeChicken(){
+              echo "The chef makes chicken <br>";
+            }
+            function makeSalad(){
+              echo "The chef makes salad <br>";
+            }
+            function makeSpecialDish(){
+              echo "The chef makes bbq ribs <br>";
+            }
+          }
+
+          class ItalianChef extends Chef {
+            function makePasta(){
+              echo "The chef makes pasta <br>";
+            }
+            function makeSpecialDish(){ //overwriting the makeSpecialDish function
+              echo "The chef makes chicken parm <br>";
+            }
+          }
+
+          $chef = new Chef();
+          $chef->makeSpecialDish();
+
+          $italianChef = new ItalianChef();
+          $italianChef->makeSpecialDish();
+        ?>
 
   </body>
 </html>
